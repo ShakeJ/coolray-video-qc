@@ -1,0 +1,4 @@
+interface:
+  display_name: "Coolray Video QC"
+  short_description: "Check local video and subtitle files"
+  default_prompt: "Use $coolray-video-qc to inspect this video and its subtitles, then summarize errors, warnings, and what still needs visual review."
