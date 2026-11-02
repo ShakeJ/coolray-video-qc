@@ -109,8 +109,11 @@ class MediaTests(unittest.TestCase):
               '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709'])
         make(cls.silent, ['-f', 'lavfi', '-i', 'color=black:size=320x180:rate=30:duration=1.6'],
              ['-c:v', 'libx264', '-preset', 'ultrafast'])
-        make(cls.hdr, ['-i', str(cls.good)], ['-c', 'copy', '-color_trc', 'smpte2084',
-                                           '-color_primaries', 'bt2020', '-colorspace', 'bt2020nc'])
+        # Container-only tags on copied H.264 vary between FFmpeg versions.
+        # Set VUI metadata too: this tests signaling, not HDR image conversion.
+        make(cls.hdr, ['-i', str(cls.good)], ['-c', 'copy', '-bsf:v',
+             'h264_metadata=colour_primaries=9:transfer_characteristics=16:matrix_coefficients=9',
+             '-color_trc', 'smpte2084', '-color_primaries', 'bt2020', '-colorspace', 'bt2020nc'])
 
     @classmethod
     def tearDownClass(cls):

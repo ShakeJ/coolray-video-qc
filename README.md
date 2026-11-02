@@ -17,7 +17,7 @@ It wraps existing FFmpeg capabilities and adds consistent reports and subtitle c
 
 ## Requirements
 
-Python **3.10+**. Video auditing additionally needs `ffmpeg` and `ffprobe` on PATH, with `blackdetect`, `freezedetect`, `vfrdet`, `silencedetect`, `loudnorm`, and JPEG support. The demo/tests also use `libx264` and AAC. No pip packages are required.
+Python **3.10+**. Video auditing additionally needs `ffmpeg` and `ffprobe` on PATH, with `blackdetect`, `freezedetect`, `vfrdet`, `silencedetect`, `loudnorm`, and JPEG support. The demo/tests also use `libx264`, AAC, and `h264_metadata`. No pip packages are required.
 
 For example, install FFmpeg with your usual package manager (`brew install ffmpeg` on macOS or `sudo apt install ffmpeg` on Debian/Ubuntu). Install Python separately if necessary. The scripts never install dependencies themselves.
 
